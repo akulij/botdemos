@@ -9,5 +9,4 @@ if (typeof process.env.BOTTOKEN !== "string") {
 
 const bot = new Telegraf(process.env.BOTTOKEN);
 
-bot.start((ctx: Context) => ctx.reply("Welcome"));
 bot.launch();
