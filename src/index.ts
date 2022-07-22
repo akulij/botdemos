@@ -1,4 +1,5 @@
 import { Telegraf, Context } from "telegraf";
+import greeting from "./modules/greeting"
 
 require("dotenv").config();
 
@@ -8,5 +9,7 @@ if (typeof process.env.BOTTOKEN !== "string") {
 }
 
 const bot = new Telegraf(process.env.BOTTOKEN);
+
+greeting(bot)
 
 bot.launch();
