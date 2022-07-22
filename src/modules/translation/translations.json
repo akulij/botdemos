@@ -1,7 +1,12 @@
 {
   "en": {
     "translation": {
-      "key": "hello world"
+      "greeting": "Hello, my dear friend!"
+    }
+  },
+  "ru": {
+    "translation": {
+      "greeting": "Привет, дорогой друг!"
     }
   }
 }
