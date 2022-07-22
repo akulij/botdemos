@@ -1,12 +1,18 @@
 {
   "en": {
     "translation": {
-      "greeting": "Hello, my dear friend!"
+      "greeting": "Hello, my dear friend!",
+      "personal_account": "Personal account",
+      "my_servers": "My servers",
+      "support": "Support"
     }
   },
   "ru": {
     "translation": {
-      "greeting": "Привет, дорогой друг!"
+      "greeting": "Привет, дорогой друг!",
+      "personal_account": "Личный кабинет",
+      "my_servers": "Мои серверы",
+      "support": "Тех. поддержка"
     }
   }
 }
