@@ -1,4 +1,4 @@
-import { Telegraf, Context } from "telegraf";
+import { Telegraf } from "telegraf";
 import greeting from "./modules/greeting"
 
 require("dotenv").config();
