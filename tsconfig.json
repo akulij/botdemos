@@ -4,5 +4,8 @@
     "esModuleInterop": true,
     "baseUrl": "src"
   },
-  "include": ["./src"]
+  "include": ["./src", "."],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
 }
