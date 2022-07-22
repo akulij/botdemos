@@ -1,9 +1,10 @@
 import translations from "./translations.json"
 
-type Languages = keyof typeof translations;
-type Paths = keyof typeof translations[Languages];
+export type Languages = keyof typeof translations;
+export type Paths = keyof typeof translations[Languages]["translation"];
 
 
-export default function(language: Languages, path: Paths) {
-    return translations[language][path]
+export default function(language: Languages, path: Paths): string {
+    return translations[language]["translation"][path];
 }
+
