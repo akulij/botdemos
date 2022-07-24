@@ -1,5 +1,6 @@
 import { Telegraf } from 'telegraf';
 import greeting from './modules/greeting';
+import reversestatesearch from './modules/reversestatesearch';
 
 require('dotenv').config();
 
@@ -11,5 +12,6 @@ if (typeof process.env.BOTTOKEN !== 'string') {
 const bot = new Telegraf(process.env.BOTTOKEN);
 
 greeting(bot);
+reversestatesearch(bot);
 
 bot.launch();
