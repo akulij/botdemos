@@ -1,5 +1,7 @@
 import translations from "./translations.json";
 
+let state_translations = Object;
+
 export type Languages = keyof typeof translations;
 export type Path = keyof typeof translations[Languages]["translation"];
 
@@ -20,4 +22,20 @@ export function keyboard_translation(
     return array;
   }, []);
   return out;
+}
+
+function setupStateTranslations() {
+  for (const language in translations) {
+    for (const state_name in translations[language].translation) {
+      state_translations[translations[language].translation[state_name]] = state_name;
+    }
+  }
+}
+setupStateTranslations();
+
+export function getStateTranslations() {
+  if (!state_translations) {
+    setupStateTranslations();
+  }
+  return state_translations;
 }
