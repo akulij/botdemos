@@ -2,5 +2,10 @@
     "menu": [
         ["personal_account"],
         ["my_servers", "support"]
+    ],
+    "personal_account_kbd": [
+        ["topup_balance"],
+        ["my_servers"],
+        ["menu"]
     ]
 }
