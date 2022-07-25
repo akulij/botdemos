@@ -1,10 +1,14 @@
 import { Telegraf, Context } from "telegraf";
 import { getStateTranslations } from "modules/translation";
+import config from './config';
 
 function state_searcher(ctx: Context) {
   const states_map = getStateTranslations();
   const message_text = (ctx.message as { text: string }).text;
   const state_name = states_map[message_text];
+  console.log(state_name);
+  console.log(config.execute_on);
+  config.execute_on[state_name](ctx);
 }
 
 function setup(bot: Telegraf, setupable_function: any) {
