@@ -6,11 +6,9 @@ export type Languages = keyof typeof translations;
 export type Path = keyof typeof translations[Languages]["translation"];
 
 export default function translate(language: Languages, path: Path): string {
-    let translation = translations[language].translation[path];
-    if (translation)
-        return translation
-    else
-        console.error(`No translation for ${path} exists!`);
+  let translation = translations[language].translation[path];
+  if (translation) return translation;
+  else console.error(`No translation for ${path} exists!`);
 }
 
 export function keyboard_translation(
@@ -31,7 +29,8 @@ export function keyboard_translation(
 function setupStateTranslations() {
   for (const language in translations) {
     for (const state_name in translations[language].translation) {
-      state_translations[translations[language].translation[state_name]] = state_name;
+      state_translations[translations[language].translation[state_name]] =
+        state_name;
     }
   }
 }
