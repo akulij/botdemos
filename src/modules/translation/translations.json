@@ -4,7 +4,9 @@
       "greeting": "Hello, my dear friend!",
       "personal_account": "📔Personal account",
       "my_servers": "💻My servers",
-      "support": "☎️Support"
+      "support": "☎️Support",
+      "topup_balance": "💳 Top up balance",
+      "menu": "📔 Menu"
     }
   },
   "ru": {
@@ -12,7 +14,9 @@
       "greeting": "Привет, дорогой друг!",
       "personal_account": "📔Личный кабинет",
       "my_servers": "💻Мои серверы",
-      "support": "☎️Тех. поддержка"
+      "support": "☎️Тех. поддержка",
+      "topup_balance": "💳 Пополнить баланс",
+      "menu": "📔 Меню"
     }
   }
 }
