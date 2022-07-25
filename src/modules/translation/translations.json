@@ -3,6 +3,7 @@
     "translation": {
       "greeting": "Hello, my dear friend!",
       "personal_account": "📔Personal account",
+      "personal_account_msg": "Your balance: {balance} ₽\nYour servers online: {servers_online}\nYour servers total: {servers_total}",
       "my_servers": "💻My servers",
       "support": "☎️Support",
       "topup_balance": "💳 Top up balance",
@@ -13,6 +14,7 @@
     "translation": {
       "greeting": "Привет, дорогой друг!",
       "personal_account": "📔Личный кабинет",
+      "personal_account_msg": "Ваш баланс: {balance} ₽\nКоличество ваших серверов онлайн: {servers_online}\nКоличество ваших серверов всего: {servers_total}",
       "my_servers": "💻Мои серверы",
       "support": "☎️Тех. поддержка",
       "topup_balance": "💳 Пополнить баланс",
