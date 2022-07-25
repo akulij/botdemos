@@ -6,7 +6,11 @@ export type Languages = keyof typeof translations;
 export type Path = keyof typeof translations[Languages]["translation"];
 
 export default function translate(language: Languages, path: Path): string {
-  return translations[language].translation[path];
+    let translation = translations[language].translation[path];
+    if (translation)
+        return translation
+    else
+        console.error(`No translation for ${path} exists!`);
 }
 
 export function keyboard_translation(
