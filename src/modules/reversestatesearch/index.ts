@@ -1,12 +1,13 @@
 import { Telegraf, Context } from "telegraf";
 import { getStateTranslations } from "modules/translation";
-import config from './config';
+import config from "./config";
 
 function state_searcher(ctx: Context) {
   const states_map = getStateTranslations();
   const message_text = (ctx.message as { text: string }).text;
   const state_name = states_map[message_text];
-  config.execute_on[state_name](ctx);
+  if (config.execute_on[state_name]) config.execute_on[state_name](ctx);
+  else console.error(`Unimplemented config for ${state_name}!`);
 }
 
 function setup(bot: Telegraf, setupable_function: any) {
