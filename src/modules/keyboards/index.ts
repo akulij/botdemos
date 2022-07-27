@@ -8,13 +8,13 @@ export type KeyboardName = keyof typeof keyboards;
 export default (
   ctx: Context,
   language: Languages,
-  keyboard_name: KeyboardName,
-  resize_keyboard: boolean = true,
+  keyboardName: KeyboardName,
+  resizeKeyboard: boolean = true,
 ) => {
-  if (!keyboards[keyboard_name]) logger.error(`No keyboard ${keyboards[keyboard_name]} exists!`);
+  if (!keyboards[keyboardName]) logger.error(`No keyboard ${keyboards[keyboardName]} exists!`);
   const keyboard = Markup.keyboard(
-    keyboardTranslation(ctx, language, keyboards[keyboard_name]),
+    keyboardTranslation(ctx, language, keyboards[keyboardName]),
   );
-  if (resize_keyboard) keyboard.reply_markup.resize_keyboard = true;
+  if (resizeKeyboard) keyboard.reply_markup.resize_keyboard = true;
   return keyboard;
 };
