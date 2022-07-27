@@ -1,4 +1,5 @@
 import { Telegraf } from 'telegraf';
+import logger from 'modules/logger';
 import greeting from './modules/greeting';
 import reversestatesearch from './modules/reversestatesearch';
 import incorrectmessage from './modules/incorrectmessage';
@@ -6,7 +7,7 @@ import incorrectmessage from './modules/incorrectmessage';
 require('dotenv').config();
 
 if (typeof process.env.BOTTOKEN !== 'string') {
-  console.error('Pass BOTTOKEN as enviroment variable or in .env file!');
+  logger.error('Pass BOTTOKEN as enviroment variable or in .env file!');
   process.exit(1);
 }
 

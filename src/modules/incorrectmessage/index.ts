@@ -1,10 +1,10 @@
 import { Telegraf, Context } from 'telegraf';
 import { greeting } from 'modules/greeting';
 
-function send_info_message(ctx: Context) {
+function sendInfoMessage(ctx: Context) {
   greeting(ctx);
 }
 
-export default function (bot: Telegraf) {
-  bot.hears(/[\w\W]+/gm, send_info_message);
-}
+export default (bot: Telegraf) => {
+  bot.hears(/[\w\W]+/gm, sendInfoMessage);
+};
