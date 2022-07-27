@@ -16,4 +16,15 @@ greeting(bot);
 reversestatesearch(bot);
 // incorrectmessage(bot);
 
-bot.launch();
+// check if it is main file
+if (require.main === module) bot.launch();
+
+// export for yandex cloud functions
+module.exports.handler = async (event: any) => {
+  const message = JSON.parse(event.body);
+  await bot.handleUpdate(message);
+  return {
+    statusCode: 200,
+    body: '',
+  };
+};
