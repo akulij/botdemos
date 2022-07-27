@@ -1,23 +1,29 @@
-import translations from "./translations.json";
+import translations from "./translations";
+import { Context } from "telegraf";
 
 let state_translations = Object;
 
 export type Languages = keyof typeof translations;
 export type Path = keyof typeof translations[Languages]["translation"];
 
-export default function translate(language: Languages, path: Path): string {
-  let translation = translations[language].translation[path];
-  if (translation) return translation;
-  else console.error(`No translation for ${path} exists!`);
+export default function translate(
+  ctx: Context,
+  language: Languages,
+  path: Path
+): string {
+  let translation = translations[language].translation[path](ctx);
+  if (!translation) console.error(`No translation for ${String(path)} exists!`);
+  return translation;
 }
 
 export function keyboard_translation(
+  ctx: Context,
   language: Languages,
   array: Array<Array<string>>
 ) {
   const out = array.reduce((array: Array<Array<string>>, row: string[]) => {
     let kbd_row = row.reduce((btns, button) => {
-      btns.push(translate(language, button as Path));
+      btns.push(translate(ctx, language, button as Path));
       return btns;
     }, []);
     array.push(kbd_row);
@@ -27,12 +33,11 @@ export function keyboard_translation(
 }
 
 function setupStateTranslations() {
-  for (const language in translations) {
-    for (const state_name in translations[language].translation) {
-      state_translations[translations[language].translation[state_name]] =
-        state_name;
-    }
-  }
+  Object.entries(translations).forEach(([lang, translations]) => {
+    Object.entries(translations.translation).forEach(([state_name, state_func]) => {
+      state_translations[(state_func as {(): string})()] = state_name;
+    })
+  })
 }
 setupStateTranslations();
 

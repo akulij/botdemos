@@ -5,7 +5,7 @@ import keyboards, { KeyboardName } from 'modules/keyboards';
 export default function (ctx: Context, message_name: Path, keyboard?: KeyboardName) {
     let language_code = ctx.message.from.language_code as Languages;
     if (keyboard)
-        ctx.reply(translate(language_code, message_name), keyboards(language_code, keyboard))
+        ctx.reply(translate(ctx, language_code, message_name), keyboards(ctx, language_code, keyboard))
     else
-        ctx.reply(translate(language_code, message_name));
+        ctx.reply(translate(ctx, language_code, message_name));
 }
