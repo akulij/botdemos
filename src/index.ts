@@ -2,7 +2,6 @@ import { Telegraf } from 'telegraf';
 import logger from 'modules/logger';
 import greeting from './modules/greeting';
 import reversestatesearch from './modules/reversestatesearch';
-import incorrectmessage from './modules/incorrectmessage';
 
 require('dotenv').config();
 
@@ -15,6 +14,6 @@ const bot = new Telegraf(process.env.BOTTOKEN);
 
 greeting(bot);
 reversestatesearch(bot);
-incorrectmessage(bot);
+// incorrectmessage(bot);
 
 bot.launch();
