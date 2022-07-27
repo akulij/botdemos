@@ -22,13 +22,13 @@ export function keyboardTranslation(
   language: Languages,
   array: Array<Array<string>>,
 ) {
-  const out = array.reduce((_: Array<Array<string>>, row: string[]) => {
+  const out = array.reduce((outputRow: Array<Array<string>>, row: string[]) => {
     const keyboardRow = row.reduce((btns, button) => {
       btns.push(translate(ctx, language, button as Path));
       return btns;
     }, []);
-    array.push(keyboardRow);
-    return array;
+    outputRow.push(keyboardRow);
+    return outputRow;
   }, []);
   return out;
 }
