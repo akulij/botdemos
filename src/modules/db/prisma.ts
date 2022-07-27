@@ -4,7 +4,7 @@ import { User } from './types';
 const prisma = new PrismaClient();
 
 async function getUserInfoPrisma(user: User) {
-  const userdb = await prisma.user.findFirst({
+  let userdb = await prisma.user.findFirst({
     where: {
       name: user.name,
     },
@@ -14,6 +14,11 @@ async function getUserInfoPrisma(user: User) {
       data: {
         name: user.name,
         balance: 0,
+      },
+    });
+    userdb = await prisma.user.findFirst({
+      where: {
+        name: user.name,
       },
     });
   }
