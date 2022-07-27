@@ -8,9 +8,5 @@
         ["my_servers"],
         ["menu"]
     ],
-    "my_servers_kbd": [
-        ["server1"],
-        ["server2"],
-        ["menu"]
-    ]
+    "my_servers_kbd": "function_generated"
 }
