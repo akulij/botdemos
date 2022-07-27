@@ -1,6 +1,7 @@
 import { Context } from 'telegraf';
 import translate, { Languages, Path } from 'modules/translation';
 import keyboards, { KeyboardName } from 'modules/keyboards';
+import logger from 'modules/logger';
 
 export default async function sendMsg(
   ctx: Context,
@@ -18,13 +19,17 @@ export default async function sendMsg(
   }
 }
 
-export function messageIfKeyboard(
+export async function messageIfKeyboard(
   ctx: Context,
   msg_kbd: Path,
   msg_nokbd: Path,
   keyboard?: KeyboardName,
 ) {
-  if (keyboard) {
+  logger.info(`keyboard: ${keyboard}`);
+  const languageCode = ctx.message.from.language_code as Languages;
+  const kbdTmp = await keyboards(ctx, languageCode, keyboard);
+  logger.info(kbdTmp);
+  if (kbdTmp.reply_markup.keyboard.length !== 0) {
     sendMsg(ctx, msg_kbd, keyboard);
   } else {
     sendMsg(ctx, msg_nokbd);
