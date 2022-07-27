@@ -45,3 +45,14 @@ export async function getUserServersOnline(user: User) {
   const serversOnlineCount = await getUserServersTotal(user);
   return serversOnlineCount;
 }
+
+export async function getUserServersNameList(user: User): Promise<string[]> {
+  const userPrisma = await getUserInfoPrisma(user);
+  const servers = await prisma.server.findMany({
+    where: {
+      User: userPrisma,
+    },
+  });
+  const serverList = servers.map((server) => server.name);
+  return serverList;
+}
