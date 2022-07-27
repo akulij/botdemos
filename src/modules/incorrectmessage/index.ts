@@ -2,7 +2,6 @@ import { Telegraf, Context } from 'telegraf';
 import { greeting } from 'modules/greeting';
 
 function send_info_message(ctx: Context) {
-    ctx.reply("Unknown message");
     greeting(ctx);
 }
 
