@@ -8,3 +8,4 @@ export function getUserFromCtx(ctx: Context) {
 export const { getUserBalance } = prisma;
 export const { getUserServersOnline } = prisma;
 export const { getUserServersTotal } = prisma;
+export const { getUserServersNameList } = prisma;
