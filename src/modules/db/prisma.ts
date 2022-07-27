@@ -1,5 +1,5 @@
-import { PrismaClient } from "@prisma/client";
-import { User } from "./index";
+import { PrismaClient } from '@prisma/client';
+import { User } from './index';
 
 const prisma = new PrismaClient();
 
@@ -10,13 +10,13 @@ async function getUserInfoPrisma(user: User) {
     },
   });
   if (!userdb) {
-      await prisma.user.create({
-          data: {
-              name: user.name,
-              balance: 0,
-          }
-      })
-  };
+    await prisma.user.create({
+      data: {
+        name: user.name,
+        balance: 0,
+      },
+    });
+  }
   return userdb;
 }
 

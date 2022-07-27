@@ -1,6 +1,6 @@
-import { Telegraf, Context } from "telegraf";
-import { getStateTranslations } from "modules/translation";
-import config from "./config";
+import { Telegraf, Context } from 'telegraf';
+import { getStateTranslations } from 'modules/translation';
+import config from './config';
 
 function state_searcher(ctx: Context) {
   const states_map = getStateTranslations();
@@ -13,10 +13,8 @@ function state_searcher(ctx: Context) {
 function setup(bot: Telegraf, setupable_function: any) {
   const states_map = getStateTranslations();
   Object.entries(states_map).forEach(([state_text]) => {
-      if (state_text)
-    bot.hears(state_text, setupable_function)
-  }
-  );
+    if (state_text) bot.hears(state_text, setupable_function);
+  });
 }
 
 export default function (bot: Telegraf) {
