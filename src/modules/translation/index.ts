@@ -7,29 +7,30 @@ const stateTranslations = Object;
 export type Languages = keyof typeof translations;
 export type Path = keyof typeof translations[Languages]['translation'];
 
-export default function translate(
+export default async function translate(
   ctx: Context,
   language: Languages,
   path: Path,
-): string {
-  const translation = translations[language].translation[path](ctx);
+): Promise<string> {
+  const translation = await translations[language].translation[path](ctx);
   if (!translation) logger.error(`No translation for ${String(path)} exists!`);
   return translation;
 }
 
-export function keyboardTranslation(
+export async function keyboardTranslation(
   ctx: Context,
   language: Languages,
   array: Array<Array<string>>,
 ) {
-  const out = array.reduce((outputRow: Array<Array<string>>, row: string[]) => {
-    const keyboardRow = row.reduce((btns, button) => {
-      btns.push(translate(ctx, language, button as Path));
+  const out = array.reduce(async (outputRow: Promise<Array<Array<string>>>, row: string[]) => {
+    const keyboardRow = row.reduce(async (btns, button) => {
+      (await btns).push(await translate(ctx, language, button as Path));
       return btns;
-    }, []);
-    outputRow.push(keyboardRow);
+    }, Promise.resolve([]));
+    (await outputRow).push(await keyboardRow);
     return outputRow;
-  }, []);
+  }, Promise.resolve([]));
+  logger.info(out);
   return out;
 }
 

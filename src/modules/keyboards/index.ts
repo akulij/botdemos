@@ -5,7 +5,7 @@ import keyboards from './keyboards.json';
 
 export type KeyboardName = keyof typeof keyboards;
 
-export default (
+export default async (
   ctx: Context,
   language: Languages,
   keyboardName: KeyboardName,
@@ -13,7 +13,7 @@ export default (
 ) => {
   if (!keyboards[keyboardName]) logger.error(`No keyboard ${keyboards[keyboardName]} exists!`);
   const keyboard = Markup.keyboard(
-    keyboardTranslation(ctx, language, keyboards[keyboardName]),
+    await keyboardTranslation(ctx, language, keyboards[keyboardName]),
   );
   if (resizeKeyboard) keyboard.reply_markup.resize_keyboard = true;
   return keyboard;

@@ -6,10 +6,10 @@ export default {
     translation: {
       greeting: () => "Hello there👋! I'm VPSBot!\nThere you can rent server for cryptocurrency or fiat moneys, then control them from me.\n\nOur pros:\n✅ You can pay with cryptocurrency. It will keep you anonymeously\n\n✅ We have tech support. They will install everything you need\n✅ You have notifications. If you will not have enought money, you will get a notification. If you will have not enought power of servers, we will notificate you, so you will no lose your clients\n✅ Control server on the go from Telegram right from phone. Do not have to enter to strange and heave sites",
       personal_account: () => '📔Personal account',
-      personal_account_msg: (ctx: Context | undefined = undefined) => {
+      personal_account_msg: async (ctx: Context | undefined = undefined) => {
         if (!ctx) return '';
         const user = db.getUserFromCtx(ctx);
-        return `Your balance: ${db.getUserBalance(user)} ₽\nYour servers online: ${db.getUserServersOnline(user)}\nYour servers total: ${db.getUserServersTotal(user)}`;
+        return `Your balance: ${await db.getUserBalance(user)} ₽\nYour servers online: ${await db.getUserServersOnline(user)}\nYour servers total: ${await db.getUserServersTotal(user)}`;
       },
       my_servers: () => '💻My servers',
       my_servers_msg: () => 'Your servers list',
@@ -26,10 +26,10 @@ export default {
     translation: {
       greeting: () => 'Приветсвую вас👋! Я VPSBot!\nУ меня вы сможешь арендовать сервер за криптовалюту и фиатные деньги, а потом легко управлять им через меня.\n\nНаши преимущества:\n✅ Можно пополнять криптовалютами. Это будет сохранять вашу анонимность.\n\n✅ У нас есть тех поддержка, которая в случае надобности установит вам все, что нужно\n✅ Вы получаете уведомления. Если на вашем счету будет недостаточно денег для аренды сервера, то мы вас уведомим. Если вам не будет хватать мощностей сервера, мы так же уведомим вас об этом, чтобы вы не теряли клиентов\n✅ Управление сервером в Telegram (On the go): управляйте сервером прямо со смартфона, не заходя на неудобные тяжеловесные сайты',
       personal_account: () => '📔Личный кабинет',
-      personal_account_msg: (ctx: Context) => {
+      personal_account_msg: async (ctx: Context) => {
         if (!ctx) return '';
         const user = db.getUserFromCtx(ctx);
-        return `Ваш баланс: ${db.getUserBalance(user)} ₽\nКоличество ваших серверов онлайн: ${db.getUserServersOnline(user)}\nКоличество ваших серверов всего: ${db.getUserServersTotal(user)}`;
+        return `Ваш баланс: ${await db.getUserBalance(user)} ₽\nКоличество ваших серверов онлайн: ${await db.getUserServersOnline(user)}\nКоличество ваших серверов всего: ${await db.getUserServersTotal(user)}`;
       },
       my_servers: () => '💻Мои серверы',
       my_servers_msg: () => 'Список ваших серверов',
