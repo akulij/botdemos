@@ -1,5 +1,5 @@
 import { Markup, Context } from 'telegraf';
-import { Languages, keyboardTranslation } from 'modules/translation';
+import translate, { Languages, keyboardTranslation } from 'modules/translation';
 import logger from 'modules/logger';
 import { User } from 'modules/db/types';
 import { getUserFromCtx, getUserServersNameList } from 'modules/db';
@@ -13,15 +13,9 @@ async function generateMyServersKbd(
   user: User,
 ) {
   const serverList: string[][] = (await getUserServersNameList(user)).map((server) => [server]);
-  const keyboard = Markup.keyboard(
-    await keyboardTranslation(
-      ctx,
-      language,
-      serverList,
-    ),
-  );
+  if (serverList.length !== 0) serverList.push([await translate(ctx, language, 'menu')]);
+  const keyboard = Markup.keyboard(serverList);
 
-  // if (serverList !== []) serverList.push(['menu']);
   logger.info('Keyboard:');
   logger.info(serverList);
   logger.info('----');
