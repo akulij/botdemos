@@ -7,7 +7,6 @@
     "outDir": "./dist",
     "module": "commonjs",
     "forceConsistentCasingInFileNames": true,
-    "strict": true
   },
   "include": ["./src", "."],
   "ts-node": {
