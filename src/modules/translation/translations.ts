@@ -13,6 +13,7 @@ export default {
       },
       my_servers: () => '💻My servers',
       my_servers_msg: () => 'Your servers list',
+      no_servers_msg: () => 'You have no servers',
       support: () => '☎️Support',
       support_msg: () => 'Tech support: @akulij. Write there and describe your problem',
       topup_balance: () => '💳 Top up balance',
@@ -32,6 +33,7 @@ export default {
         return `Ваш баланс: ${await db.getUserBalance(user)} ₽\nКоличество ваших серверов онлайн: ${await db.getUserServersOnline(user)}\nКоличество ваших серверов всего: ${await db.getUserServersTotal(user)}`;
       },
       my_servers: () => '💻Мои серверы',
+      no_servers_msg: () => 'У вас нет серверов',
       my_servers_msg: () => 'Список ваших серверов',
       support: () => '☎️Тех. поддержка',
       support_msg: () => 'Тех. поддержка: @akulij. Напишите туда и объясните свою проблему. В ближайшие 20 минут с вами свяжутся.',
