@@ -9,5 +9,6 @@ export default {
     menu: (ctx: Context) => sendMsg(ctx, 'greeting', 'menu'),
     my_servers: (ctx: Context) => sendMsg(ctx, 'my_servers_msg', 'my_servers_kbd'),
     support: (ctx: Context) => sendMsg(ctx, 'support_msg'),
+    topup_balance: (ctx: Context) => sendMsg(ctx, 'topup_balance_msg'),
   },
 };
