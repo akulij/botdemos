@@ -1,19 +1,37 @@
 module.exports = {
+  "settings": {
+    "react": {
+      "version": "16.0",
+    }     
+  },
   env: {
-    browser: true,
     es2021: true,
   },
   extends: [
-    'airbnb-base',
+      "plugin:react/recommended",
+      'airbnb-base',
+      'airbnb-typescript',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    project: './tsconfig.json',
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
   plugins: [
-    '@typescript-eslint',
   ],
   rules: {
+    'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'], 'allow': "as-needed" }],
+    'import/no-named-as-default': 0,
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never'
+      }
+    ]
   },
 };
