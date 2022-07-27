@@ -33,18 +33,23 @@ export function keyboardTranslation(
   return out;
 }
 
-function setupStateTranslations() {
-  Object.entries(translations).forEach(([, translation]) => {
-    Object.entries(translation.translation).forEach(([state_name, state_func]) => {
-      stateTranslations[(state_func as { (): string })()] = state_name;
-    });
+async function setupStateTranslations() {
+  Object.entries(translations).forEach(async ([, translation]) => {
+    Object.entries(translation.translation).forEach(
+      async ([state_name, state_func]) => {
+        stateTranslations[
+          await (state_func as { (): string } | { (): Promise<string> })()
+        ] = state_name;
+      },
+    );
   });
 }
 setupStateTranslations();
 
-export function getStateTranslations() {
+export async function getStateTranslations() {
   if (!stateTranslations) {
-    setupStateTranslations();
+    await setupStateTranslations();
   }
   return stateTranslations;
+  logger.info(stateTranslations);
 }
