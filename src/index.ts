@@ -1,7 +1,7 @@
 import { Telegraf } from 'telegraf';
 import logger from 'modules/logger';
-import greeting from './modules/greeting';
-import reversestatesearch from './modules/reversestatesearch';
+import greeting from 'modules/greeting';
+import reversestatesearch from 'modules/reversestatesearch';
 import 'dotenv/config';
 
 if (typeof process.env.BOTTOKEN !== 'string') {
