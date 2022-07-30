@@ -15,6 +15,6 @@ export async function getUserBalance() {
 export async function getUserServersOnline() {
 
 }
-export async function etUserServersTotal() {
+export async function getUserServersTotal() {
 
 }
