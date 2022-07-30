@@ -6,15 +6,15 @@ const database = process.env.YANDEX_DATABASE_EMPLACEMENT;
 const authService = getCredentialsFromEnv();
 const driver = new Driver({ endpoint, database, authService });
 
-export function getUserFromCtx() {
+export async function getUserFromCtx() {
 
 }
-export function getUserBalance() {
+export async function getUserBalance() {
 
 }
-export function getUserServersOnline() {
+export async function getUserServersOnline() {
 
 }
-export function etUserServersTotal() {
+export async function etUserServersTotal() {
 
 }
