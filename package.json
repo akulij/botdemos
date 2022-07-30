@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "ts-node src/index.ts",
     "build": "tsc",
-    "prebuild-run": "tsc",
-    "build-run": "TS_NODE_BASEURL=./dist NODE_ENV=production node dist/index.js",
+    "prestart": "tsc",
+    "start": "TS_NODE_BASEURL=./dist NODE_ENV=production node dist/index.js",
     "lint": "eslint src/**/*.ts",
     "lint-fix": "eslint src/**/*.ts --fix",
     "migrate": "prisma migrate dev --name init"
