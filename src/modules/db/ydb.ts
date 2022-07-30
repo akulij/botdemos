@@ -1,12 +1,12 @@
-export function getUserFromCtxYDB() {
+export function getUserFromCtx() {
 
 }
-export function getUserBalanceYDB() {
+export function getUserBalance() {
 
 }
-export function getUserServersOnlineYDB() {
+export function getUserServersOnline() {
 
 }
-export function etUserServersTotalYDB() {
+export function etUserServersTotal() {
 
 }
