@@ -5,7 +5,9 @@ import { User } from './types';
 export function getUserFromCtx(ctx: Context) {
   return { name: ctx.message.from.username } as User;
 }
-export const { getUserBalance } = prisma;
-export const { getUserServersOnline } = prisma;
-export const { getUserServersTotal } = prisma;
-export const { getUserServersNameList } = prisma;
+export const {
+  getUserBalance,
+  getUserServersOnline,
+  getUserServersTotal,
+  getUserServersNameList,
+} = prisma;
