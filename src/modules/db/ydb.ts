@@ -14,9 +14,6 @@ driver.ready(1000).then(async (ready) => {
   }
 });
 
-export async function getUserFromCtx() {
-
-}
 export async function getUserBalance() {
 
 }
