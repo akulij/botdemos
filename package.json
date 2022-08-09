@@ -20,12 +20,14 @@
     "dotenv": "^16.0.1",
     "telegraf": "^4.8.5",
     "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.0.0",
+    "uuid": "^8.3.2",
     "web3": "^0.20.7",
     "winston": "^3.8.1",
-    "ydb-sdk": "^3.3.2",
-    "tsconfig-paths": "^4.0.0"
+    "ydb-sdk": "^3.3.2"
   },
   "devDependencies": {
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
     "eslint": "^8.20.0",
