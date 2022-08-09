@@ -6,7 +6,8 @@
     "target": "es2016",
     "outDir": "./dist",
     "module": "commonjs",
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true
   },
   "include": ["./src", "."],
   "ts-node": {
