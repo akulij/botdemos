@@ -15,7 +15,7 @@ export default async function sendMsg(
       await keyboards(ctx, languageCode, keyboard),
     );
   } else {
-    ctx.reply(await translate(ctx, languageCode, message_name));
+    ctx.reply(await translate(ctx, languageCode, message_name), {parse_mode: 'HTML'});
   }
 }
 
