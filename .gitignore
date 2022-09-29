@@ -2,6 +2,7 @@
 node_modules
 dist
 prisma/*.db
+prisma/db*
 prisma/migrations
 *.log
 key.json
