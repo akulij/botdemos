@@ -1,6 +1,5 @@
 import { Context } from 'telegraf';
 import * as prisma from './prisma';
-import * as ydb from './ydb';
 import { User } from './types';
 
 export function getUserFromCtx(ctx: Context) {
@@ -11,4 +10,4 @@ export const {
   getUserServersOnline,
   getUserServersTotal,
   getUserServersNameList,
-} = ydb;
+} = prisma;
