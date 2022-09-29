@@ -1,6 +1,7 @@
 .env
 node_modules
 dist
-prisma
+prisma/*.db
+prisma/migrations
 *.log
 key.json
